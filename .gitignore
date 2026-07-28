@@ -1,0 +1,9 @@
+
+
+# ignore the build folder
+Build/
+
+# ignore ide specific files 
+*.idea
+*.vscode
+*.DS_Store

@@ -1,0 +1,31 @@
+
+* text=auto
+
+# Project text
+*.c       text eol= lf
+*.cpp     text eol= lf
+*.h       text eol= lf
+*.hpp     text eol= lf
+*.glsl    text eol= lf
+*.py      text eol= lf
+*.lua     text eol= lf
+*.toml    text eol= lf
+*.json    text eol= lf
+*.md      text eol= lf
+*.ps1     text eol= lf
+
+# Windows command scripts
+*.bat     text eol=crlf
+*.cmd     text eol=crlf
+
+# Binary files
+*.spv     binary
+*.png     binary
+*.jpg     binary
+*.dll     binary
+*.exe     binary
+*.lib     binary
+*.pdb     binary
+*.fbx     binary
+*.obj     binary
+
