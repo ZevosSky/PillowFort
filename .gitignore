@@ -1,9 +1,26 @@
 
+# Generated build output
+/Build/
 
-# ignore the build folder
-Build/
+# Visual Studio local state
+/.vs/
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
 
-# ignore ide specific files 
-*.idea
-*.vscode
-*.DS_Store
+# Python caches and environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Editor state
+.idea/
+.vscode/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
