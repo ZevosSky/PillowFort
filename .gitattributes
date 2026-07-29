@@ -3,7 +3,7 @@
 
 .gitattributes text eol=lf
 .gitignore     text eol=lf
-.gitmodules text eol=lf
+.gitmodules    text eol=lf
 
 # Project text
 *.c       text eol=lf
