@@ -5,20 +5,17 @@ workspace "PillowFort"
     configurations
     {
         "Debug",
-        "Release",
-        "Dist"
+        "Release"
     }
 
-outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+local outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-/*
-
-*/
 local function apply_common_cpp_settings()
     language "C++"
     cppdialect "C++20"
     staticruntime "Off"
     warnings "Extra"
+    multiprocessorcompile "On"
 
     targetdir ("Build/Artifacts/%{cfg.buildcfg}/%{prj.name}")
     objdir ("Build/Intermediate/" .. outputdir .. "/%{prj.name}")
@@ -30,6 +27,7 @@ local function apply_common_cpp_settings()
 
     filter "system:windows"
         systemversion "latest"
+        characterset "Unicode"
         defines
         {
             "NOMINMAX",
@@ -38,10 +36,12 @@ local function apply_common_cpp_settings()
 
     filter "configurations:Debug"
         defines "PF_DEBUG"
+        runtime "Debug"
         symbols "On"
 
     filter "configurations:Release"
         defines "PF_RELEASE"
+        runtime "Release"
         optimize "Speed"
 
     filter {}
