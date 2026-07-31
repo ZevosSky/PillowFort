@@ -249,15 +249,15 @@ This is a decision gate, not a scheduled foundation milestone.
 - [x] Define `PillowFortEngine` and `SandboxGame`.
 - [x] Add the project-generation batch file.
 - [x] Generate a Visual Studio solution containing both targets.
-- [ ] Implement `ErrorReporting`.
-- [ ] Add `SandboxGame::main()`.
-- [ ] Build both targets in Debug and Release.
+- [x] Implement `ErrorReporting`.
+- [x] Add `SandboxGame::main()`.
+- [x] Build both targets in Debug and Release.
 
 **Exit:** `SandboxGame` calls an engine logging function and exits successfully.
 
 ### 2 — Engine loop, window, and input
 
-- [ ] Implement `EngineLoop`.
+- [x] Implement `EngineLoop`.
 - [ ] Integrate GLFW through Premake.
 - [ ] Implement `WindowInput`.
 - [ ] Handle close, resize, keyboard, and mouse events.
@@ -311,7 +311,7 @@ fresh clone.
 ## Definition of done
 
 - [x] Premake generates the two PillowFort targets.
-- [ ] Debug and Release builds succeed.
+- [x] Debug and Release builds succeed.
 - [ ] `SandboxGame` renders a Vulkan triangle and ImGui information.
 - [ ] Resize, minimize, restore, and shutdown are validation-clean.
 - [ ] Build output can be deleted and reproduced.

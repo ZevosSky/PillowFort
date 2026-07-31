@@ -59,11 +59,11 @@ Source/
     └── Main.cpp
 ```
 
-- [ ] Add `pf::error_reporting::WriteLine`.
-- [ ] Make `SandboxGame` own the only `main()`.
-- [ ] Call the engine log function from `main()`.
-- [ ] Build and run Debug.
-- [ ] Build and run Release.
+- [x] Add `pf::error_reporting::WriteLine`.
+- [x] Make `SandboxGame` own the only `main()`.
+- [x] Call the engine log function from `main()`.
+- [x] Build and run Debug.
+- [x] Build and run Release.
 
 Do not add a singleton logger, generated entry point, application base class,
 or registration mechanism.
@@ -72,11 +72,11 @@ or registration mechanism.
 
 ## 4. Implement the engine loop
 
-- [ ] Create `Source/PillowFort/EngineLoop`.
-- [ ] Represent loop control with an explicitly owned C++ object.
-- [ ] Calculate frame delta using `std::chrono`.
-- [ ] Let the caller request shutdown.
-- [ ] Test a fixed-frame run without creating a window.
+- [x] Create `Source/PillowFort/EngineLoop`.
+- [x] Represent loop control with an explicitly owned C++ object.
+- [x] Calculate frame delta using `std::chrono`.
+- [x] Let the caller request shutdown.
+- [x] Test a fixed-frame run without creating a window.
 
 **Exit check:** `SandboxGame` advances a chosen number of frames and exits
 cleanly.
