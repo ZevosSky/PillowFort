@@ -4,6 +4,12 @@
 > ImGui. Add automation only after the engine exposes a repeated problem worth
 > automating.
 
+This document records the target and architectural decisions. Completion state
+lives only in [plan.md](plan.md), and reproducible local commands live in
+[docs/GETTING_STARTED.md](docs/GETTING_STARTED.md). Keeping those roles separate
+prevents a long-term design document from claiming that unverified work is
+complete.
+
 ## Foundation target
 
 The foundation is complete when `SandboxGame` can:
@@ -33,8 +39,10 @@ foundation.
 | Configurations | Debug and Release |
 | PillowFort targets | `PillowFortEngine` and `SandboxGame` |
 
-The Vulkan SDK is a machine prerequisite. Premake is vendored, while GLFW and
-Dear ImGui are pinned Git submodules. Package managers are not required.
+Premake is vendored, while GLFW and Dear ImGui are pinned Git submodules.
+Package managers are not required. The Vulkan SDK, validation layers, `glslc`,
+and a Vulkan-capable GPU become machine prerequisites when their corresponding
+Vulkan and shader milestones begin; they do not gate the earlier C++ exercises.
 
 ## Ownership boundaries
 
@@ -68,7 +76,7 @@ A module name should complete:
 
 | Module | Responsibility |
 | --- | --- |
-| `ErrorReporting` | Prints diagnostics and stops on broken invariants |
+| `Logging` | Writes console messages and compile-time-gated trace output |
 | `EngineLoop` | Starts, advances, and stops the application |
 | `WindowInput` | Owns the GLFW window, callbacks, and queued input events |
 | `VulkanGraphics` | Owns Vulkan objects and records/presents drawing work |
@@ -96,13 +104,16 @@ VulkanGraphics
 
 ```text
 PillowFort/
+├── docs/
+│   └── GETTING_STARTED.md
 ├── GenerateProjects.bat
 ├── premake5.lua
 ├── ROADMAP.md
 ├── plan.md
+├── THIRD_PARTY_NOTICES.md
 ├── Source/
 │   ├── PillowFort/
-│   │   ├── ErrorReporting/
+│   │   ├── Logging/
 │   │   ├── EngineLoop/
 │   │   ├── WindowInput/
 │   │   ├── VulkanGraphics/
@@ -113,6 +124,7 @@ PillowFort/
 │   └── Triangle/
 ├── Tests/
 │   └── Cpp/
+│       └── EngineLoopTests.cpp
 ├── Vendor/
 └── Build/
 ```
@@ -143,20 +155,22 @@ Shaders and other runtime files are located relative to the executable.
 
 ## Runtime contracts
 
-`SandboxGame` explicitly constructs and connects engine objects:
+`SandboxGame` explicitly constructs and connects stateful engine objects and
+calls the stateless logging surface:
 
 ```text
 SandboxGame
-├── ErrorReporting
+├── Logging (function calls)
 ├── EngineLoop
 ├── WindowInput
 ├── VulkanGraphics
 └── DebugPanels
 ```
 
-Startup order is error reporting, window/input, Vulkan, debug panels, then the
-engine loop. Shutdown is the reverse. ImGui stops before Vulkan, the Vulkan
-surface is destroyed before its GLFW window, and GLFW terminates last.
+Logging is available throughout the program. Startup order for stateful
+systems is window/input, Vulkan, debug panels, then the engine loop. Shutdown
+is the reverse. ImGui stops before Vulkan, the Vulkan surface is destroyed
+before its GLFW window, and GLFW terminates last.
 
 Constructors do not perform fallible GPU initialization. Initialization reports
 descriptive failures. Assertions represent programmer mistakes; missing files,
@@ -229,93 +243,54 @@ the repeated inputs and outputs. If generation is justified:
 
 This is a decision gate, not a scheduled foundation milestone.
 
-## Milestones
+## Milestone outcomes
+
+The live checklist and current checkpoint are in [plan.md](plan.md). These are
+acceptance boundaries, not a second status tracker.
 
 ### 0 — Repository baseline
 
-- [x] Record the foundation scope and decisions.
-- [x] Add `.gitignore` and `.gitattributes`.
-- [x] Add the MIT license.
-- [x] Vendor Premake.
-- [x] Pin GLFW and ImGui as Git submodules.
-- [x] Document required local tools.
-- [ ] Add `THIRD_PARTY_NOTICES.md`.
+A fresh clone has a clear, legally reviewable source tree, pinned dependencies,
+and disposable generated output.
 
-**Exit:** a fresh clone has a clear, legally reviewable starting point.
+### 1 — Premake and headless C++ slice
 
-### 1 — Premake and C++ hello world
+Premake generates the engine, sandbox, and test targets. Debug and Release
+build, the sandbox calls engine code and stops after three frames, and the
+engine loop has a CPU-only regression test.
 
-- [x] Define Debug and Release configurations.
-- [x] Define `PillowFortEngine` and `SandboxGame`.
-- [x] Add the project-generation batch file.
-- [x] Generate a Visual Studio solution containing both targets.
-- [x] Implement `ErrorReporting`.
-- [x] Add `SandboxGame::main()`.
-- [x] Build both targets in Debug and Release.
+### 2 — Window and input
 
-**Exit:** `SandboxGame` calls an engine logging function and exits successfully.
-
-### 2 — Engine loop, window, and input
-
-- [x] Implement `EngineLoop`.
-- [ ] Integrate GLFW through Premake.
-- [ ] Implement `WindowInput`.
-- [ ] Handle close, resize, keyboard, and mouse events.
-- [ ] Confirm minimized windows wait instead of spinning.
-
-**Exit:** `SandboxGame` opens a window, processes events, and shuts down cleanly.
+`SandboxGame` opens one GLFW window, turns callbacks into ordered events,
+minimizes without spinning, and shuts down cleanly.
 
 ### 3 — Vulkan clear frame
 
-- [ ] Create the Vulkan instance and Debug messenger.
-- [ ] Create the surface, select a device, and create queues.
-- [ ] Create the swapchain, image views, commands, and synchronization.
-- [ ] Clear using dynamic rendering.
-- [ ] Recreate the swapchain safely.
-- [ ] Verify reverse destruction order.
-
-**Exit:** a clear frame survives resize and minimize cycles without validation
-errors.
+A validation-enabled Vulkan path selects a suitable device and presents a clear
+frame through resize, minimize, restore, and shutdown cycles.
 
 ### 4 — Shaders and procedural triangle
 
-- [ ] Write the vertex and fragment shaders.
-- [ ] Prove their `glslc` commands manually.
-- [ ] Add the proven commands to Premake.
-- [ ] Load SPIR-V relative to the executable.
-- [ ] Create the pipeline and draw using `gl_VertexIndex`.
-
-**Exit:** the triangle renders and survives swapchain recreation.
+Proven `glslc` commands become Premake build steps, SPIR-V is found relative to
+the executable, and a procedural triangle survives swapchain recreation.
 
 ### 5 — ImGui debug panels
 
-- [ ] Build the official GLFW and Vulkan backends.
-- [ ] Preserve `WindowInput` callback ownership.
-- [ ] Show frame time, FPS, GPU name, and swapchain extent.
-- [ ] Verify keyboard and mouse forwarding.
-
-**Exit:** interactive panels render without destabilizing input or the frame
-loop.
+Interactive development panels show frame and GPU information while
+`WindowInput` retains callback ownership.
 
 ### 6 — Reproducibility and hardening
 
-- [ ] Stress resize, minimize, restore, and shutdown.
-- [ ] Test missing shaders and unsupported hardware.
-- [ ] Build both configurations from an empty `Build/`.
-- [ ] Add focused C++ tests for reusable non-GPU behavior.
-- [ ] Document runtime ownership and debugging procedures.
+Another developer can reproduce both configurations from a clean `Build/`,
+exercise expected failure paths, and understand runtime ownership and Vulkan
+diagnostics from the checked-in documentation.
 
-**Exit:** another developer can reproduce and understand the foundation from a
-fresh clone.
+## Foundation definition of done
 
-## Definition of done
-
-- [x] Premake generates the two PillowFort targets.
-- [x] Debug and Release builds succeed.
-- [ ] `SandboxGame` renders a Vulkan triangle and ImGui information.
-- [ ] Resize, minimize, restore, and shutdown are validation-clean.
-- [ ] Build output can be deleted and reproduced.
-- [ ] No current feature depends on an unneeded automation layer.
+The foundation is done only when the triangle and ImGui panels render, resize
+and shutdown paths are validation-clean, clean output is reproducible, and no
+feature depends on an unneeded automation layer. `plan.md` records whether each
+condition has actually been demonstrated.
 
 ## Guardrails
 

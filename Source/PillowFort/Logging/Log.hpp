@@ -2,17 +2,16 @@
 
 #include <string_view>
 
-#if defined(PF_DEBUG)
-    #define PF_TRACE(message) pf::error_reporting::WriteLine(message)
-#else
-    #define PF_TRACE(message) (void)0
-#endif
-
-namespace pf::error_reporting
+namespace pf::logging
 {
-    // Keep the first logging surface small. Severity, formatting, files, and
-    // callbacks should be added only when a real caller requires them.
-    void WriteLine(const char* message);
-    void WriteLine(const std::string& message); 
-    void WriteLine(const std::string_view message);
+    // Writes one complete line to the process console.
+    void WriteLine(std::string_view message);
 }
+
+// Trace calls are present in Debug and completely omitted from Release. The
+// disabled form does not evaluate message.
+#if defined(PF_DEBUG)
+    #define PF_TRACE(message) ::pf::logging::WriteLine(message)
+#else
+    #define PF_TRACE(message) static_cast<void>(0)
+#endif

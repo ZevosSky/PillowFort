@@ -75,3 +75,20 @@ project "SandboxGame"
     {
         "PillowFortEngine"
     }
+
+project "PillowFortTests"
+    kind "ConsoleApp"
+    apply_common_cpp_settings()
+
+    files
+    {
+        "Tests/Cpp/**.h",
+        "Tests/Cpp/**.hpp",
+        "Tests/Cpp/**.c",
+        "Tests/Cpp/**.cpp"
+    }
+
+    links
+    {
+        "PillowFortEngine"
+    }

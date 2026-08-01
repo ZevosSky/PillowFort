@@ -1,19 +1,16 @@
-#include "PillowFort/ErrorReporting/Log.hpp"
+#include "PillowFort/Logging/Log.hpp"
 
-#include <iostream>
+#include <cstdio>
 
-namespace pf::error_reporting
+namespace pf::logging
 {
-    void WriteLine(const char* message) {
-        printf("%s\n", message);
-    }
+    void WriteLine(const std::string_view message)
+    {
+        if (!message.empty())
+        {
+            std::fwrite(message.data(), sizeof(char), message.size(), stdout);
+        }
 
-    void WriteLine(const std::string& message) {
-        WriteLine(message.c_str());
-    }
-
-    void WriteLine(const std::string_view message) {
-        WriteLine(std::string(message).c_str());
+        std::fputc('\n', stdout);
     }
 }
-

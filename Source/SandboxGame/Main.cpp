@@ -1,5 +1,3 @@
-
-
 #include "PillowFort/EngineLoop/EngineLoop.hpp"
 #include "PillowFort/Logging/Log.hpp"
 
@@ -9,11 +7,11 @@ int main()
 {
     using pf::engine_loop::EngineLoop;
     using pf::engine_loop::FrameInfo;
-    using pf::error_reporting::WriteLine;
+    using pf::logging::WriteLine;
 
     constexpr std::uint64_t demonstration_frame_count = 3;
 
-    WriteLine("PillowFort starting.");
+    PF_TRACE("PillowFort starting.");
 
     EngineLoop engine_loop;
     std::uint64_t completed_frame_count = 0;
@@ -35,6 +33,6 @@ int main()
         return 1;
     }
 
-    WriteLine("PillowFort completed three frames and stopped cleanly.");
+    PF_TRACE("PillowFort completed three frames and stopped cleanly.");
     return 0;
 }
