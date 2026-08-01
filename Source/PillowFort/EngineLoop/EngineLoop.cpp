@@ -27,9 +27,9 @@ namespace pf::engine_loop
 
             const FrameInfo frame_info
             {
-                .frame_number = frame_number,
-                .delta_seconds = delta_time.count(),
-                .elapsed_seconds = elapsed_time.count()
+                frame_number,
+                delta_time.count(),
+                elapsed_time.count()
             };
 
             frame_callback(frame_info);

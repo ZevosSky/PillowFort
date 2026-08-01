@@ -2,6 +2,12 @@
 
 #include <string_view>
 
+#if defined(PF_DEBUG)
+    #define PF_TRACE(message) pf::error_reporting::WriteLine(message)
+#else
+    #define PF_TRACE(message) (void)0
+#endif
+
 namespace pf::error_reporting
 {
     // Keep the first logging surface small. Severity, formatting, files, and

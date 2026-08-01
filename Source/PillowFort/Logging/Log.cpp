@@ -16,3 +16,4 @@ namespace pf::error_reporting
         WriteLine(std::string(message).c_str());
     }
 }
+

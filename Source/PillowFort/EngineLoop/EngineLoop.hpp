@@ -27,5 +27,6 @@ namespace pf::engine_loop
 
     private:
         bool stop_requested_ = false;
+        
     };
 }
