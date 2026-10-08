@@ -1,0 +1,46 @@
+
+# Generated build output
+/Build/
+
+# Visual Studio local state
+/.vs/
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
+
+# Python caches and environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Editor state
+.idea/
+.vscode/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local agent instructions and context
+/.claude/
+/.codex/
+/.agents/
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+/.github/copilot-instructions.md
+.claude/
+.codex/
+.agents/
+**/.github/copilot-instructions.md
+**/.github/instructions/
+**/.github/agents/
+**/.github/prompts/
+/.github/workflows/mirror-public.yml
+/Scripts/mirror_public.py
+/Tests/Python/test_public_mirror.py
+/docs/PublicMirror.md

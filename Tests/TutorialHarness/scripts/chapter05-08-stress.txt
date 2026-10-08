@@ -1,0 +1,18 @@
+# Input script for `pf.py run --script`: one "<present number> <command>" per line.
+# Exercises the chapter 05 stress table rows that Xvfb can reproduce, plus the
+# chapter 07 present-mode picker. Coordinates are window-relative pixels and
+# assume the 01-08 reference layout (Frame panel at 10,10; Shader panel below).
+20  shot   start
+30  resize 900 500          # swapchain recreation + chapter 08's scene-target rebuild
+40  shot   resized-small
+50  resize 1400 900         # larger than at startup
+60  shot   resized-large
+70  resize 1280 720
+80  click  120 200          # open the Present mode combo (Frame panel)
+85  shot   combo-open
+90  click  120 237          # second entry in the list
+100 shot   present-mode-switched
+110 down   55 257           # drag the Amplitude slider in the Shader panel
+112 move   20 257
+114 up     20 257
+120 shot   amplitude-dragged
