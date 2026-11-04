@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "diagrams": [
+    {
+      "id": "ch52-pure-field-slices",
+      "file": "wind-field-slices.svg",
+      "sha256": "6ec8a11b8f7c2c8ad2d0ed456f0c867c6091ce31cb31c7bc9ba5cf6d017a1a81",
+      "kind": "computed analytic vector plot",
+      "nativeRendererEvidence": false,
+      "source": "Chapter 52 authored compact velocity equation; no game image or capture",
+      "generator": "make-wind-fields.py",
+      "generatorSha256": "97a37e37598c4791ffbe81d344bfb690a43beb8c2958873f27b260dc68cb35ad",
+      "authoringTools": {
+        "python": "3.12",
+        "numpy": "2.3.5",
+        "matplotlib": "3.11.2"
+      },
+      "parameters": {
+        "slice": "y = 0; axes X and Z in metres",
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "radiusMetres": 2,
+        "swirl": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angularSpeedRadiansPerSecond": 3
+        },
+        "gust": {
+          "linearVelocityMetresPerSecond": [
+            4,
+            0,
+            0
+          ]
+        },
+        "radial": {
+          "rawSpeedAtRadiusMetresPerSecond": 6
+        },
+        "ageFractions": [
+          0,
+          0.5
+        ],
+        "combination": "Each column isolates only its named term",
+        "plottedQuantity": "U = weight * rawWind before normalized target and particle response",
+        "scales": "Common quiver scale 7 and speed color range 0 to 4 m/s"
+      },
+      "controls": "Independent center/half-radius/boundary scalar values; visual PNG inspected",
+      "regenerate": "Optional authoring only: python make-wind-fields.py; NumPy and Matplotlib required. Not part of the engine build."
+    },
+    {
+      "id": "foliage-flower-batches",
+      "file": "foliage-batches.svg",
+      "sha256": "94051773dc7a775e6793954ad9629548fdcfc61e26ea3bac4551e593fad3b518",
+      "kind": "authored batching and uniform-scale schematic",
+      "nativeRendererEvidence": false,
+      "source": "Current Understory BuildMeshCommands/generate/vertex contract; stylized shapes, not USD asset geometry",
+      "generator": "make-foliage-batches.py",
+      "generatorSha256": "73ba1ff99fd1c6c8c2cae3896b356d10b645bd0b7da3e302c88f8cb31f5c346b",
+      "authoringTools": {
+        "python": "3.12",
+        "matplotlib": "3.11.2"
+      },
+      "parameters": {
+        "kind": "Flower",
+        "kindIndex": 1,
+        "lod": 0,
+        "regionIndex": 2,
+        "recordsPerRegion": 6400,
+        "firstInstance": 12800,
+        "instanceRecordBytes": 32,
+        "instanceCountPerPart": 2,
+        "parts": ["Stem", "Head"],
+        "commandTemplateCount": 10,
+        "uniformSizes": [0.8, 1.2],
+        "turnXY": [1, 0],
+        "identity": "A/B are diagram labels. World-cell identity seeds generation and is not an additional PlantInstance field."
+      },
+      "controls": "Current part counts, region formula and instance fields source-inspected; final PNG visually inspected for spacing and relative scales. No draw or shader execution.",
+      "regenerate": "Optional authoring only: python make-foliage-batches.py; Matplotlib required. Not part of the engine build."
+    }
+  ]
+}
