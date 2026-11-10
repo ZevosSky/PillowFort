@@ -1,0 +1,2 @@
+# Keep computed-diagram provenance hashes stable across Windows checkouts.
+*.svg text eol=lf
