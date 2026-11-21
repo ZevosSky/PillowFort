@@ -1,0 +1,2416 @@
+{
+  "schemaVersion": 1,
+  "diagrams": [
+    {
+      "id": "ch52-pure-field-slices",
+      "file": "wind-field-slices.svg",
+      "sha256": "6ec8a11b8f7c2c8ad2d0ed456f0c867c6091ce31cb31c7bc9ba5cf6d017a1a81",
+      "kind": "computed analytic vector plot",
+      "nativeRendererEvidence": false,
+      "source": "Chapter 52 authored compact velocity equation; no game image or capture",
+      "generator": "make-wind-fields.py",
+      "generatorSha256": "97a37e37598c4791ffbe81d344bfb690a43beb8c2958873f27b260dc68cb35ad",
+      "authoringTools": {
+        "python": "3.12",
+        "numpy": "2.3.5",
+        "matplotlib": "3.11.2"
+      },
+      "parameters": {
+        "slice": "y = 0; axes X and Z in metres",
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "radiusMetres": 2,
+        "swirl": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angularSpeedRadiansPerSecond": 3
+        },
+        "gust": {
+          "linearVelocityMetresPerSecond": [
+            4,
+            0,
+            0
+          ]
+        },
+        "radial": {
+          "rawSpeedAtRadiusMetresPerSecond": 6
+        },
+        "ageFractions": [
+          0,
+          0.5
+        ],
+        "combination": "Each column isolates only its named term",
+        "plottedQuantity": "U = weight * rawWind before normalized target and particle response",
+        "scales": "Common quiver scale 7 and speed color range 0 to 4 m/s"
+      },
+      "controls": "Independent center/half-radius/boundary scalar values; visual PNG inspected",
+      "regenerate": "Optional authoring only: python make-wind-fields.py; NumPy and Matplotlib required. Not part of the engine build."
+    },
+    {
+      "id": "foliage-flower-batches",
+      "file": "foliage-batches.svg",
+      "sha256": "94051773dc7a775e6793954ad9629548fdcfc61e26ea3bac4551e593fad3b518",
+      "kind": "authored batching and uniform-scale schematic",
+      "nativeRendererEvidence": false,
+      "source": "Current Understory BuildMeshCommands/generate/vertex contract; stylized shapes, not USD asset geometry",
+      "generator": "make-foliage-batches.py",
+      "generatorSha256": "73ba1ff99fd1c6c8c2cae3896b356d10b645bd0b7da3e302c88f8cb31f5c346b",
+      "authoringTools": {
+        "python": "3.12",
+        "matplotlib": "3.11.2"
+      },
+      "parameters": {
+        "kind": "Flower",
+        "kindIndex": 1,
+        "lod": 0,
+        "regionIndex": 2,
+        "recordsPerRegion": 6400,
+        "firstInstance": 12800,
+        "instanceRecordBytes": 32,
+        "instanceCountPerPart": 2,
+        "parts": [
+          "Stem",
+          "Head"
+        ],
+        "commandTemplateCount": 10,
+        "uniformSizes": [
+          0.8,
+          1.2
+        ],
+        "turnXY": [
+          1,
+          0
+        ],
+        "identity": "A/B are diagram labels. World-cell identity seeds generation and is not an additional PlantInstance field."
+      },
+      "controls": "Current part counts, region formula and instance fields source-inspected; final PNG visually inspected for spacing and relative scales. No draw or shader execution.",
+      "regenerate": "Optional authoring only: python make-foliage-batches.py; Matplotlib required. Not part of the engine build."
+    },
+    {
+      "id": "a-plant-from-cell-to-draw",
+      "file": "a-plant-from-cell-to-draw.svg",
+      "sha256": "5efacfc1995cd97def7be53a5a3217a3661652e6848baa1eed5b825aeaac02fe",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "FoliageBatches.md, section 2 (Trace two sizes through one batch)",
+      "generator": "make-tutorial-figures.py figures/ch-foliagebatches.py",
+      "generatorSha256": "88456ae27a371a7694ea52904b8ddde8989f87f77a58aba769964fb59e45283c",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "two-sizes-in-one-flower-batch",
+      "file": "two-sizes-in-one-flower-batch.svg",
+      "sha256": "83d2af20b44ee0fa6317b631f1885481922d3836659462ce9e1098031b27c098",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "FoliageBatches.md, section 3 (Keep identity when the buffer is rebuilt)",
+      "generator": "make-tutorial-figures.py figures/ch-foliagebatches.py",
+      "generatorSha256": "88456ae27a371a7694ea52904b8ddde8989f87f77a58aba769964fb59e45283c",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "instanceCount": 2,
+        "firstInstance": 12800,
+        "sizes": [
+          0.8,
+          1.2
+        ],
+        "recordBytes": 32
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "frames-without-overlap",
+      "file": "frames-without-overlap.svg",
+      "sha256": "0e402a445a296f02e1752a7690ae7dc27f1307c4e487fafe8bc198edb430284e",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "04-Commands-And-Synchronization.md, section 2 (Frames in flight)",
+      "generator": "make-tutorial-figures.py figures/ch04.py",
+      "generatorSha256": "e7a2e8ae48ef95f2c89f083523e628598c86e183e8608bef64030f0349b7e307",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "barrier-scopes-on-the-queue",
+      "file": "barrier-scopes-on-the-queue.svg",
+      "sha256": "0d9b1306f51d701db6df0a06d445c163366b00364686deaf66cc482c01b4b689",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "04-Commands-And-Synchronization.md, section 5 (What \"before\" and \"after\" cover)",
+      "generator": "make-tutorial-figures.py figures/ch04.py",
+      "generatorSha256": "e7a2e8ae48ef95f2c89f083523e628598c86e183e8608bef64030f0349b7e307",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "acquire-wait-and-first-barrier",
+      "file": "acquire-wait-and-first-barrier.svg",
+      "sha256": "26c5cacfed049b1402c7b642d37089963ebcb7f7e9dbc61e2ef444638cf903ac",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "04-Commands-And-Synchronization.md, section 5 (Barriers next to semaphores)",
+      "generator": "make-tutorial-figures.py figures/ch04.py",
+      "generatorSha256": "e7a2e8ae48ef95f2c89f083523e628598c86e183e8608bef64030f0349b7e307",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "triangle-in-clip-space",
+      "file": "triangle-in-clip-space.svg",
+      "sha256": "a8bd3a3b16c2d8b6ac8cf142ebe8b028737ca9b4aff7a57c8631bec3a3430491",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "06-Shaders-And-Pipelines.md, section 2 (The triangle shaders)",
+      "generator": "make-tutorial-figures.py figures/ch06.py",
+      "generatorSha256": "01096dd9ea98b60ae0e5f8d711688cf8e8109e2c501790d5724e7479dc6bc934",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "pipeline-state-in-draw-order",
+      "file": "pipeline-state-in-draw-order.svg",
+      "sha256": "7ee4e621d73df306d006894bc375cce5940293319c1a20c5dc0e9f16e697002c",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "06-Shaders-And-Pipelines.md, section 4 (The graphics pipeline)",
+      "generator": "make-tutorial-figures.py figures/ch06.py",
+      "generatorSha256": "01096dd9ea98b60ae0e5f8d711688cf8e8109e2c501790d5724e7479dc6bc934",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "color-encodings-in-the-frame",
+      "file": "color-encodings-in-the-frame.svg",
+      "sha256": "935591afb98b068339dd4857decb7454c3accdcd00354dadfa66f5c1c977092c",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "08-Resources-And-Descriptors.md, section 4 (Linear and sRGB)",
+      "generator": "make-tutorial-figures.py figures/ch08.py",
+      "generatorSha256": "ded258711872c50898aef82ebc87cf94c47fe7839e187307e8565c067caac74c",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "push-constant-offsets-without-padding",
+      "file": "push-constant-offsets-without-padding.svg",
+      "sha256": "703f9c378cb8ed5f166c5e5850bcdea5fc3ba902caba56137e9f1365c4fb902a",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "08-Resources-And-Descriptors.md, section 8 (Where the bytes go)",
+      "generator": "make-tutorial-figures.py figures/ch08.py",
+      "generatorSha256": "ded258711872c50898aef82ebc87cf94c47fe7839e187307e8565c067caac74c",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "cppBaseColorOffset": 12,
+        "cppBytesPushed": 28,
+        "glslBaseColorOffset": 16,
+        "glslBlockEnd": 32
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "demo-switch-sequence",
+      "file": "demo-switch-sequence.svg",
+      "sha256": "44bb802c88dc1f399b68be79d4432bc23d3503354ee138cf02f9ee13ab5e5bb9",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "09-Demo-Harness.md, section 5 (switchDemo)",
+      "generator": "make-tutorial-figures.py figures/ch09.py",
+      "generatorSha256": "c0475b25a2d6d53a3d6ddd0e299c9b5bbd91078a1d0bae0ecf13a00e1fe77898",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "from-local-space-to-pixels",
+      "file": "from-local-space-to-pixels.svg",
+      "sha256": "85a9a149dc9edccc5fa73379a39dce8c83f6ef4d28c2494ec7636bac4cab2a53",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "10-Cameras-And-Depth.md, section 1 (Four spaces, and the one you already know)",
+      "generator": "make-tutorial-figures.py figures/ch10.py",
+      "generatorSha256": "fedd63859566838e12a0ab81388afac69218b42f5e1cf810ea466ea13815e40e",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "yaw-and-pitch",
+      "file": "yaw-and-pitch.svg",
+      "sha256": "b4a8637b4aaebea13b80f6d60ad89f8f4292964f23e90a716edb5c29ff3d3274",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "10-Cameras-And-Depth.md, section 6 (Yaw and pitch)",
+      "generator": "make-tutorial-figures.py figures/ch10.py",
+      "generatorSha256": "fedd63859566838e12a0ab81388afac69218b42f5e1cf810ea466ea13815e40e",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "exampleYawDegrees": 50.0,
+        "examplePitchDegrees": 30.0
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "from-mesh-data-to-the-vertex-shader",
+      "file": "from-mesh-data-to-the-vertex-shader.svg",
+      "sha256": "a2576c2ee1500d5e52476c5a355a54a13a1364c0542b2caecd1e0fa729154a66",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "11-Meshes.md, section 1 (From gl_VertexIndex to buffers)",
+      "generator": "make-tutorial-figures.py figures/ch11.py",
+      "generatorSha256": "b7c4d8ceb0dcf3ea23823c8c8b9ed409d1c396131983128c4b5fe851438ba8b9",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "winding-on-the-monitor",
+      "file": "winding-on-the-monitor.svg",
+      "sha256": "1e55e3445a0b1039c21d4f17247496afdff97b71d25829143aed20e5233d5d06",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "11-Meshes.md, section 7 (Which side is the front)",
+      "generator": "make-tutorial-figures.py figures/ch11.py",
+      "generatorSha256": "b7c4d8ceb0dcf3ea23823c8c8b9ed409d1c396131983128c4b5fe851438ba8b9",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "normals-under-a-squash",
+      "file": "normals-under-a-squash.svg",
+      "sha256": "266b7c5ab45d1885942fa94be5e0eafad3cb485671830253ea3239173bf62e80",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "11-Meshes.md, section 13 (How normals move: the normal matrix)",
+      "generator": "make-tutorial-figures.py figures/ch11.py",
+      "generatorSha256": "b7c4d8ceb0dcf3ea23823c8c8b9ed409d1c396131983128c4b5fe851438ba8b9",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "scale": [
+          1,
+          0.5,
+          1
+        ],
+        "trueNormalDegrees": 63.43,
+        "modelMatrixNormalDegrees": 26.57
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "box-around-a-turned-box",
+      "file": "box-around-a-turned-box.svg",
+      "sha256": "c796756709ff5af99f7edacd34e33146229beeafd350e90677e1fdece3d0700e",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "12-Scene-Graph.md, section 2 (transformBounds)",
+      "generator": "make-tutorial-figures.py figures/ch12.py",
+      "generatorSha256": "3d40a845874a257a67264cf92286defcadf7a820a40535505ffcb020125b855a",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "halfSize": [
+          2.0,
+          1.0
+        ],
+        "turnDegrees": 45,
+        "reach": 2.1213
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "shear-from-an-uneven-parent",
+      "file": "shear-from-an-uneven-parent.svg",
+      "sha256": "041fecb143f732111ac4ea22d91f3102b4df31ba5dc90ebde2e180a898bc1b70",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "12-Scene-Graph.md, section 5 (transformFromMatrix, shear)",
+      "generator": "make-tutorial-figures.py figures/ch12.py",
+      "generatorSha256": "3d40a845874a257a67264cf92286defcadf7a820a40535505ffcb020125b855a",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "turnDegrees": 45,
+        "parentScale": [
+          2,
+          1,
+          1
+        ],
+        "anglesApart": [
+          90.0,
+          126.87
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "a-plane-as-four-numbers",
+      "file": "a-plane-as-four-numbers.svg",
+      "sha256": "9598787b6f1f37fabdc418b2df776dd87f3ca838852c8b0c70c76f81424c862c",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "12-Scene-Graph.md, section 9 (A plane as four numbers)",
+      "generator": "make-tutorial-figures.py figures/ch12.py",
+      "generatorSha256": "3d40a845874a257a67264cf92286defcadf7a820a40535505ffcb020125b855a",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "plane": [
+          1,
+          0,
+          0,
+          -2
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "xform-op-order-from-above",
+      "file": "xform-op-order-from-above.svg",
+      "sha256": "e8dc494383d687469446f5eb8263fade7354ee0abf2265fd4ec63feb31fb358e",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "13-Adding-TinyUSDZ.md, section 9 (Transforms are a list of operations)",
+      "generator": "make-tutorial-figures.py figures/ch13.py",
+      "generatorSha256": "997f4f655def985428208a8889384a11a8b99e4e354fcef59b78da263a185a0c",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "translate": [
+          1,
+          0.5,
+          0
+        ],
+        "rotateYDegrees": 30.0,
+        "reversedCentre": [
+          0.866,
+          0.5,
+          -0.5
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "lens-and-film-triangle",
+      "file": "lens-and-film-triangle.svg",
+      "sha256": "ef3a226bd8f140e2dc12786192d5b21fa38207e45a910ccfdc4665c8703a36fa",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "14-Importing-USD-Scenes.md, section 6 (Cameras)",
+      "generator": "make-tutorial-figures.py figures/ch14.py",
+      "generatorSha256": "5a28010ec336d1f34c52c20862c136e7b3ce17b289df3d0ea497e9882edff2ad",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "focalLength": 35.0,
+        "verticalAperture": 24.0,
+        "thetaDegrees": 18.92,
+        "drawnAt": "10 px per millimetre"
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "framing-a-bounding-sphere",
+      "file": "framing-a-bounding-sphere.svg",
+      "sha256": "07a729fe721e8ea66a6f4777832a793f1abd0e72fd450cc361d148456d640d32",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "14-Importing-USD-Scenes.md, section 9 (Loading a file, on the CPU only)",
+      "generator": "make-tutorial-figures.py figures/ch14.py",
+      "generatorSha256": "5a28010ec336d1f34c52c20862c136e7b3ce17b289df3d0ea497e9882edff2ad",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "thetaDegrees": 30.0,
+        "radiusPixels": 112.0,
+        "distancePixels": 224.00000000000003
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "material-route",
+      "file": "material-route.svg",
+      "sha256": "d979de20a58fd317f1e7195d7dfbf16c94db3162e016ecce217dd459f57dabe7",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "15-Materials-And-Textures.md, What you are actually writing",
+      "generator": "make-tutorial-figures.py figures/ch15.py",
+      "generatorSha256": "b5c87c284a474643e81f74d3a6ced47e9b6dbbef5a5fbbc246f789696b1334d3",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "pixel-footprint-and-anisotropy",
+      "file": "pixel-footprint-and-anisotropy.svg",
+      "sha256": "18f9e5674bd214b77633c5961a0f06ea3b03dbaddd70f13a32032afc74a2889e",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "15-Materials-And-Textures.md, section 5 (Anisotropic filtering needs a device feature)",
+      "generator": "make-tutorial-figures.py figures/ch15.py",
+      "generatorSha256": "b5c87c284a474643e81f74d3a6ced47e9b6dbbef5a5fbbc246f789696b1334d3",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "footprintTexels": [
+          16,
+          1
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "shading-directions",
+      "file": "shading-directions.svg",
+      "sha256": "a6bbfd7f6935ab9ae07530c6d1a3fe154d51c6477daee7e918771342178ac6d5",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "15-Materials-And-Textures.md, section 9 (Two words for light, and four directions)",
+      "generator": "make-tutorial-figures.py figures/ch15.py",
+      "generatorSha256": "b5c87c284a474643e81f74d3a6ced47e9b6dbbef5a5fbbc246f789696b1334d3",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "tangent-frame-on-a-quad",
+      "file": "tangent-frame-on-a-quad.svg",
+      "sha256": "41d7701655b81da757f61cb56193b55bce9d64829fd56b49609d8b26e9c31ac3",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "15-Materials-And-Textures.md, section 10 (Tangents)",
+      "generator": "make-tutorial-figures.py figures/ch15.py",
+      "generatorSha256": "b5c87c284a474643e81f74d3a6ced47e9b6dbbef5a5fbbc246f789696b1334d3",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "light-route",
+      "file": "light-route.svg",
+      "sha256": "6c92c1f9a59362440e86514e1f707e5908828703fc64983dd5d38fc667a3c80c",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "16-Lights.md, What you are actually writing",
+      "generator": "make-tutorial-figures.py figures/ch16.py",
+      "generatorSha256": "2f6ef9ebce2048a28a908d7c87ad0312afcf04f555ad618ccc3df958f29197d7",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "solid-angle-of-a-ball",
+      "file": "solid-angle-of-a-ball.svg",
+      "sha256": "15f2057e6650c21a7fb0d20b2aff793bb1f1c2a3b4089b66e52db57c6cc28751",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "16-Lights.md, section 2 (What intensity measures)",
+      "generator": "make-tutorial-figures.py figures/ch16.py",
+      "generatorSha256": "2f6ef9ebce2048a28a908d7c87ad0312afcf04f555ad618ccc3df958f29197d7",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "rOverD": 0.132,
+        "halfAngleDegrees": 7.585,
+        "exactOverApproximate": 1.0044
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "a-frame-with-a-shadow-pass",
+      "file": "a-frame-with-a-shadow-pass.svg",
+      "sha256": "290310a81e0f22369db52123c8612ba16c656d470554e215f6e3d36a962ee7b7",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "17-Shadows.md, What you are actually writing",
+      "generator": "make-tutorial-figures.py figures/ch17.py",
+      "generatorSha256": "4df4246185d31afcf737b1568dd2b8d50d3e046a4369f1b1fcb5f0755112c288",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "light-box-around-the-view-slice",
+      "file": "light-box-around-the-view-slice.svg",
+      "sha256": "0ff7c3d88a8df80f69174c0c1e041ae9162a8369ece1f33e1102a4e175c97e3c",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "17-Shadows.md, section 2 (The light's camera: fitted to what you can see)",
+      "generator": "make-tutorial-figures.py figures/ch17.py",
+      "generatorSha256": "4df4246185d31afcf737b1568dd2b8d50d3e046a4369f1b1fcb5f0755112c288",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "maxDistanceMetres": 120.0,
+        "casterReachMetres": 200.0,
+        "verticalFovDegrees": 60,
+        "cameraHeightMetres": 3.0,
+        "cameraTiltDegrees": -8,
+        "sunElevationDegrees": 15,
+        "towerMetres": {
+          "behindCamera": 100.0,
+          "height": 40.0
+        },
+        "shadowTipMetresAhead": 49.3
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "shadow-acne-from-flat-steps",
+      "file": "shadow-acne-from-flat-steps.svg",
+      "sha256": "8544b8660a6b89bf22ba931ffef27b56ef7f02b771e2882a51203f5a5d441f58",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "17-Shadows.md, section 7 (Shadow acne, peter-panning, and bias)",
+      "generator": "make-tutorial-figures.py figures/ch17.py",
+      "generatorSha256": "4df4246185d31afcf737b1568dd2b8d50d3e046a4369f1b1fcb5f0755112c288",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "texels": 6,
+        "surfaceTiltDegrees": 22
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "smallest-sphere-around-a-slice",
+      "file": "smallest-sphere-around-a-slice.svg",
+      "sha256": "fb395f63a945dc7a8221c70f626414cd9dca9894ecea5e603313bfb32902a740",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "17-Shadows.md, section 12 (Shimmering, and holding the shadow still)",
+      "generator": "make-tutorial-figures.py figures/ch17.py",
+      "generatorSha256": "4df4246185d31afcf737b1568dd2b8d50d3e046a4369f1b1fcb5f0755112c288",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "testLens": {
+          "verticalFovDegrees": 60,
+          "aspect": "16:9",
+          "near": 14.0,
+          "far": 34.0,
+          "k2": 1.3868,
+          "centre": 34.0,
+          "radius": 40.04
+        },
+        "narrowLens": {
+          "verticalFovDegrees": 30,
+          "aspect": "16:9",
+          "near": 4.0,
+          "far": 20.0,
+          "k2": 0.2987,
+          "centre": 15.585,
+          "radius": 11.789
+        }
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "what-the-scene-pass-draws-into",
+      "file": "what-the-scene-pass-draws-into.svg",
+      "sha256": "94d2101da6c7c329982723fc7a6e773c462e6819d9689f0ca7ea4f9ace2a1f3a",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "18-Anti-Aliasing.md, What you are actually writing",
+      "generator": "make-tutorial-figures.py figures/ch18.py",
+      "generatorSha256": "c3396b3fdb7e2d1a0b174cbc94646da37a2e455e7ed9d284fdf22458c9808c7b",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "four-samples-in-one-pixel",
+      "file": "four-samples-in-one-pixel.svg",
+      "sha256": "31e597d50a439979d8d6ae54f25d42ff191ad8dab1f35bc5c4401c54903ad5dc",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "18-Anti-Aliasing.md, section 2 (How MSAA works)",
+      "generator": "make-tutorial-figures.py figures/ch18.py",
+      "generatorSha256": "c3396b3fdb7e2d1a0b174cbc94646da37a2e455e7ed9d284fdf22458c9808c7b",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "samplePositions": "a square, as the chapter draws them for clarity",
+        "resolvedColour": "#905475",
+        "averagedIn": "linear"
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "from-draw-items-to-indirect-draws",
+      "file": "from-draw-items-to-indirect-draws.svg",
+      "sha256": "2c95b752a4652cce610265d7151da8251135b0c60bd567fa7a9962fe7945b1d2",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "19-Instancing-And-Indirect.md, What you are actually writing",
+      "generator": "make-tutorial-figures.py figures/ch19.py",
+      "generatorSha256": "4c51654d3a632066a578a35a083541edcc9172e75338788a7cd0090192b76666",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "the-sort-key-and-what-it-picks",
+      "file": "the-sort-key-and-what-it-picks.svg",
+      "sha256": "0a5fdc3461b0d44286cce9c96c4945e022a89c5963244fc2bce29d507d06d266",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "19-Instancing-And-Indirect.md, section 5 (Batching the draw list)",
+      "generator": "make-tutorial-figures.py figures/ch19.py",
+      "generatorSha256": "4c51654d3a632066a578a35a083541edcc9172e75338788a7cd0090192b76666",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "two-commands-in-the-shared-buffers",
+      "file": "two-commands-in-the-shared-buffers.svg",
+      "sha256": "2899e89f618d0928d961b6cd0f38856f4f7ac0b83e8e14fb21c0290be38b1762",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "19-Instancing-And-Indirect.md, section 5 (Batching the draw list)",
+      "generator": "make-tutorial-figures.py figures/ch19.py",
+      "generatorSha256": "4c51654d3a632066a578a35a083541edcc9172e75338788a7cd0090192b76666",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "items": [
+          "A",
+          "A",
+          "B"
+        ],
+        "commands": [
+          {
+            "mesh": "A",
+            "instanceCount": 2,
+            "firstInstance": 0
+          },
+          {
+            "mesh": "B",
+            "instanceCount": 1,
+            "firstInstance": 2
+          }
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "a-tile-at-the-grids-corner",
+      "file": "a-tile-at-the-grids-corner.svg",
+      "sha256": "cd23b817ca343dd2b45b99c54e4b3d82db62baa2c3a464c1397db238efc9af20",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "20-Compute-Fundamentals.md, section 6 (Shared memory and barrier()), worked solution",
+      "generator": "make-tutorial-figures.py figures/ch20.py",
+      "generatorSha256": "7709d8b8746b33f18f29f52ac3eb75208848909bc3656d7d75839d069758e890",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "grid": [
+          300,
+          170
+        ],
+        "workgroup": 8,
+        "tile": 10,
+        "workgroupId": [
+          37,
+          21
+        ],
+        "tileCorner": [
+          295,
+          167
+        ],
+        "storingInvocations": 8,
+        "secondPassEntries": 36
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "one-frame-of-the-particles",
+      "file": "one-frame-of-the-particles.svg",
+      "sha256": "c0dc196f4655183368fd31d3977e0c900db82b1de6c2b7e66f91d30ecdf31e7f",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "21-GPU-Particles.md, The problem particles pose",
+      "generator": "make-tutorial-figures.py figures/ch21.py",
+      "generatorSha256": "a07025ab495e49b8e79160c5039b0298e583b6a6982068924a5a4efd77fd2f64",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "equal-slices-of-a-sphere",
+      "file": "equal-slices-of-a-sphere.svg",
+      "sha256": "66b85ce2ded40cbb0f28ebb23e01dde344809872be1778b0f00cfe36bb7e6b92",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "21-GPU-Particles.md, section 3 (Emit: directions spread evenly over a cone)",
+      "generator": "make-tutorial-figures.py figures/ch21.py",
+      "generatorSha256": "a07025ab495e49b8e79160c5039b0298e583b6a6982068924a5a4efd77fd2f64",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "slices": 3,
+        "arcLengths": [
+          0.8411,
+          0.3899,
+          0.3398
+        ],
+        "ringRadiiAtMidHeight": [
+          0.5528,
+          0.866,
+          0.986
+        ],
+        "areaEach": 2.0944
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "depth-hand-back-chain",
+      "file": "depth-hand-back-chain.svg",
+      "sha256": "03fa40ede7ca67d1e993aaa23d8888c5e79e92813fecc9a39c341c8045151ea4",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "21-GPU-Particles.md, section 5 (A second rendering scope, after the scene pass)",
+      "generator": "make-tutorial-figures.py figures/ch21.py",
+      "generatorSha256": "a07025ab495e49b8e79160c5039b0298e583b6a6982068924a5a4efd77fd2f64",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "forward-and-deferred-frames",
+      "file": "forward-and-deferred-frames.svg",
+      "sha256": "0c505240bc1be2cd4f241756280fe2a244952c0bd86bb629c642d7d2f464839a",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "22-Deferred-Shading.md, What you are actually writing",
+      "generator": "make-tutorial-figures.py figures/ch22.py",
+      "generatorSha256": "6607ea1917490456c04a2c887ffd0bcb4c5df1cde281f54563435c7cc01e0b74",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "octahedral-normal-square",
+      "file": "octahedral-normal-square.svg",
+      "sha256": "59b052900dacd0cceeb36f091c26dec1758f63bf720ca67594fcd6e83d316ed3",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "22-Deferred-Shading.md, section 3 (A normal in two numbers)",
+      "generator": "make-tutorial-figures.py figures/ch22.py",
+      "generatorSha256": "6607ea1917490456c04a2c887ffd0bcb4c5df1cde281f54563435c7cc01e0b74",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "examples": {
+          "(0.6, 0, 0.8)": [
+            0.4286,
+            0.0
+          ],
+          "(0.6, 0, -0.8)": [
+            1.0,
+            0.5714
+          ]
+        }
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "what-a-tile-can-light",
+      "file": "what-a-tile-can-light.svg",
+      "sha256": "1a423ef336f5662e750193ce8d862505747e19cc38a634f9e4fd43319f9aab1d",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "22-Deferred-Shading.md, section 8 (What a tile sees)",
+      "generator": "make-tutorial-figures.py figures/ch22.py",
+      "generatorSha256": "6607ea1917490456c04a2c887ffd0bcb4c5df1cde281f54563435c7cc01e0b74",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "cube-map-faces-unfolded",
+      "file": "cube-map-faces-unfolded.svg",
+      "sha256": "ef46867e096a2d2820afadaec883afb384a314f8926f7637638066de668c8392",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "23-The-Sky.md, section 2 (Cube maps: six faces, one direction)",
+      "generator": "make-tutorial-figures.py figures/ch23.py",
+      "generatorSha256": "ced27316863aa6d4f0279d134f0fd4d911c1c7575270d7bae75c36d02f07fe8c",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "lat-long-image-layout",
+      "file": "lat-long-image-layout.svg",
+      "sha256": "2628c6a3870c8c1bc2d840d510b42f9b8845d6d77dfb8f54ddf76a3889fddfad",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "23-The-Sky.md, section 4 (From an environment image)",
+      "generator": "make-tutorial-figures.py figures/ch23.py",
+      "generatorSha256": "ced27316863aa6d4f0279d134f0fd4d911c1c7575270d7bae75c36d02f07fe8c",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "workedDirection": "(1, 1, 0)/sqrt(2)",
+        "workedUv": [
+          0.25,
+          0.25
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "sky-with-a-sunset-patch",
+      "file": "sky-with-a-sunset-patch.svg",
+      "sha256": "896a4a8be6604628fa47b264a63c696736ed5fa398ca544a6a2100e7f3c61584",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "24-Image-Based-Lighting.md, section 1 (Why one ambient color is wrong)",
+      "generator": "make-tutorial-figures.py figures/ch24.py",
+      "generatorSha256": "3584641e4f742249dadc784e8e1649e00c530741024dd9e40efb5037ab5f1440",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "sky": [
+          0.1,
+          0.2,
+          0.4
+        ],
+        "ground": [
+          0.04,
+          0.03,
+          0.02
+        ],
+        "sunset": [
+          3.0,
+          1.2,
+          0.3
+        ],
+        "sunsetSteradians": 0.2,
+        "sunsetElevationDegrees": 5.0
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "solid-angle-of-a-cube-texel",
+      "file": "solid-angle-of-a-cube-texel.svg",
+      "sha256": "d16c5b08b847133f3c5ed7f4d84264edf0853913c027f33544fee7e42b3849f2",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "24-Image-Based-Lighting.md, section 2 (Adding up a sky, texel by texel)",
+      "generator": "make-tutorial-figures.py figures/ch24.py",
+      "generatorSha256": "3584641e4f742249dadc784e8e1649e00c530741024dd9e40efb5037ab5f1440",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "texelsAcrossTheDrawnFace": 4,
+        "texelCentreU": 0.75,
+        "angleDegrees": 36.87
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "downsample-lookups-on-shared-corners",
+      "file": "downsample-lookups-on-shared-corners.svg",
+      "sha256": "80fa59a82ddb7e737109e0bd4be8627f37face4e8716293f39271dabbd02e0d5",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "24-Image-Based-Lighting.md, section 3 (The class, its images, and a smaller sky)",
+      "generator": "make-tutorial-figures.py figures/ch24.py",
+      "generatorSha256": "3584641e4f742249dadc784e8e1649e00c530741024dd9e40efb5037ab5f1440",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "taps": 2,
+        "skyTexelsAcross": 4,
+        "lookupsAt": [
+          1.0,
+          3.0
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "rough-reflection-streak-and-blob",
+      "file": "rough-reflection-streak-and-blob.svg",
+      "sha256": "690d280b24fdd1887f1917f321ed560489ddecff3ee82385ff29a8b31a07d2db",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "24-Image-Based-Lighting.md, section 5 (What a rough surface reflects: the split sum)",
+      "generator": "make-tutorial-figures.py figures/ch24.py",
+      "generatorSha256": "3584641e4f742249dadc784e8e1649e00c530741024dd9e40efb5037ab5f1440",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "central-difference-normal",
+      "file": "central-difference-normal.svg",
+      "sha256": "ac1f2ecb1987ef2984272f40b1743c2f406052b4ef24c4d4271928e656ea3c8c",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "25-Grass-Blades.md, section 3 (The ground)",
+      "generator": "make-tutorial-figures.py figures/ch25.py",
+      "generatorSha256": "a1ceb97d6e2a5ea7815678026fa18587e27c114cf015f93594826281f748e9d7",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "e": 0.05,
+        "dx": 0.02,
+        "normal": [
+          -0.196,
+          0.981
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "blade-strip-vertex-order",
+      "file": "blade-strip-vertex-order.svg",
+      "sha256": "1e4d9ffd08e409ae778b7ee5a9bccb85763a103b0f777fef242ce5375b8c0b0f",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "25-Grass-Blades.md, section 4 (One blade from fifteen vertices)",
+      "generator": "make-tutorial-figures.py figures/ch25.py",
+      "generatorSha256": "a1ceb97d6e2a5ea7815678026fa18587e27c114cf015f93594826281f748e9d7",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "segments": 7,
+        "halfWidth": "0.5 * width * (1 - t*t)",
+        "drawnWidthOverHeight": 0.42
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "blade-control-points",
+      "file": "blade-control-points.svg",
+      "sha256": "0b8e389444f92a6f0deb9bbc3263aa0c928eb2d8e8edaa285204a5a21adc4c83",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "25-Grass-Blades.md, section 6 (The curve)",
+      "generator": "make-tutorial-figures.py figures/ch25.py",
+      "generatorSha256": "a1ceb97d6e2a5ea7815678026fa18587e27c114cf015f93594826281f748e9d7",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "tilt": 0.3,
+        "bend": 0.5,
+        "leanDegrees": 27.0
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "first-blade-triangle-winding",
+      "file": "first-blade-triangle-winding.svg",
+      "sha256": "42af6f40c7b567b2e2b28f3b20e42f563a08269dc20089a1d11e8fd7a9865e2b",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "25-Grass-Blades.md, section 7 (Normals, two faces, and light)",
+      "generator": "make-tutorial-figures.py figures/ch25.py",
+      "generatorSha256": "a1ceb97d6e2a5ea7815678026fa18587e27c114cf015f93594826281f748e9d7",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "vertices": {
+          "0": [
+            -0.025,
+            0.0
+          ],
+          "1": [
+            0.025,
+            0.0
+          ],
+          "2": [
+            -0.0245,
+            0.0714
+          ]
+        }
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "lod-regions-in-one-blade-buffer",
+      "file": "lod-regions-in-one-blade-buffer.svg",
+      "sha256": "a8f5fc9c784ff6c2a770c2f4a619f0a7d2af012cdca84376682531c2460e96bc",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "26-Grass-GPU-Generation.md, section 5 (One buffer, two regions, two draws)",
+      "generator": "make-tutorial-figures.py figures/ch26.py",
+      "generatorSha256": "a6758c9d7febaa8c5d8c9c83a4d5ddf697fbe113a40324de871825e06f502ac7",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "capacity0": 200000,
+        "capacity1": 600000,
+        "widthsToScale": true
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "nested-blade-levels-along-t",
+      "file": "nested-blade-levels-along-t.svg",
+      "sha256": "d6171826594d5797a96abfcd63cd1f0f4969306adf293865f10bdf9251b26cd3",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "26-Grass-GPU-Generation.md, section 6 (Hiding the switch)",
+      "generator": "make-tutorial-figures.py figures/ch26.py",
+      "generatorSha256": "a6758c9d7febaa8c5d8c9c83a4d5ddf697fbe113a40324de871825e06f502ac7",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "t": [
+          0.0,
+          0.2653,
+          0.4898,
+          0.6735,
+          0.8163,
+          0.9184,
+          0.9796,
+          1.0
+        ],
+        "lowToHigh": [
+          0,
+          2,
+          4,
+          7
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "pair-three-slides-onto-the-low-level",
+      "file": "pair-three-slides-onto-the-low-level.svg",
+      "sha256": "3901707c974baec74a5bd5843596c3e4b94f4a6c26f83bfc459d9a426478a6f9",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "26-Grass-GPU-Generation.md, section 6 (Hiding the switch)",
+      "generator": "make-tutorial-figures.py figures/ch26.py",
+      "generatorSha256": "a6758c9d7febaa8c5d8c9c83a4d5ddf697fbe113a40324de871825e06f502ac7",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "tilt": 0.3,
+        "bend": 0.5,
+        "t": [
+          0.4898,
+          0.6735,
+          0.8163
+        ],
+        "fraction": "9/16",
+        "drawnSpanPixels": 340
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "depth-pyramid-by-hand",
+      "file": "depth-pyramid-by-hand.svg",
+      "sha256": "2ae4e4e266a2b43dab503ae4b4dca0eb5a05c3399fee5da053907461832f2161",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "26-Grass-GPU-Generation.md, section 9 (Occlusion culling against last frame's depth)",
+      "generator": "make-tutorial-figures.py figures/ch26.py",
+      "generatorSha256": "a6758c9d7febaa8c5d8c9c83a4d5ddf697fbe113a40324de871825e06f502ac7",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "depth": [
+          [
+            0.2,
+            0.3,
+            0.9,
+            0.9
+          ],
+          [
+            0.6,
+            0.4,
+            0.8,
+            0.7
+          ],
+          [
+            0.5,
+            0.5,
+            0.3,
+            0.8
+          ],
+          [
+            0.5,
+            0.4,
+            0.2,
+            0.1
+          ]
+        ],
+        "level0": [
+          [
+            0.6,
+            0.9
+          ],
+          [
+            0.5,
+            0.8
+          ]
+        ],
+        "level1": [
+          [
+            0.9
+          ]
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "gradient-noise-in-one-dimension",
+      "file": "gradient-noise-in-one-dimension.svg",
+      "sha256": "0bc10845f4b1021e80c074be9b56254ee7d14dbbb633c835768880efbc801862",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "27-Grass-Look.md, section 2 (Wind)",
+      "generator": "make-tutorial-figures.py figures/ch27.py",
+      "generatorSha256": "4f83eba0a0dbb6c6f37e0eddee960a45bc04aec29fbff7b7b8cce0c38bd0adab",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "fade": "6t^5 - 15t^4 + 10t^3",
+        "cases": [
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "atHalf": [
+          0.5,
+          0.0
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "rays-through-the-cloud-layer",
+      "file": "rays-through-the-cloud-layer.svg",
+      "sha256": "92a6f564885f4993c29ee96bd9df10afb34cb3d6d07c8e3d11299b4ce21062c1",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "28-Clouds.md, Where this is going",
+      "generator": "make-tutorial-figures.py figures/ch28.py",
+      "generatorSha256": "ab54c388063aa881f1ad43c682c7d1f4a274b213e518916b287c4290f6ac0ba2",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "bottomMetres": 1500.0,
+        "topMetres": 4000.0,
+        "texelsDrawn": 8,
+        "stepsDrawn": 10,
+        "verticalScale": "to scale; the eye drawn near the ground",
+        "markedRay": "the last texel on the sun's side"
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "jittered-first-step",
+      "file": "jittered-first-step.svg",
+      "sha256": "ee529403f949a45e789f229cd434eec634298d042787a0e9d858f04ac289d955",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "28-Clouds.md, section 3 (Why the first step is random)",
+      "generator": "make-tutorial-figures.py figures/ch28.py",
+      "generatorSha256": "ab54c388063aa881f1ad43c682c7d1f4a274b213e518916b287c4290f6ac0ba2",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "rays": 24,
+        "rows": 4,
+        "seed": 28,
+        "thicknessInSteps": "0.3 + 4.4 sin(pi x)^1.5",
+        "countsFixed": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4,
+          4,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          4,
+          3,
+          3,
+          2,
+          2,
+          1,
+          1
+        ],
+        "countsJittered": [
+          [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3,
+            3,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            4,
+            4,
+            3,
+            3,
+            2,
+            2,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1,
+            2,
+            2,
+            3,
+            3,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1,
+            1,
+            2,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4,
+            5,
+            5,
+            4,
+            4,
+            4,
+            4,
+            3,
+            3,
+            2,
+            2,
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            3,
+            4,
+            5,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            4,
+            3,
+            3,
+            3,
+            2,
+            2,
+            1,
+            1,
+            0
+          ]
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "worley-distance-and-inverted",
+      "file": "worley-distance-and-inverted.svg",
+      "sha256": "ddc39f30b7ca359753274a2fcc040f30eb4c04ab94f47cd31d2e557b9af7b590",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "28-Clouds.md, section 7 (Worley noise, in three dimensions)",
+      "generator": "make-tutorial-figures.py figures/ch28.py",
+      "generatorSha256": "ab54c388063aa881f1ad43c682c7d1f4a274b213e518916b287c4290f6ac0ba2",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "function": "CloudShapeNoise's worleyNoise(p, 4, 10u) with Random.glsl's pcgHash, in 3D",
+        "slice": "z = 0.4125 cells (p.z = 0.103125)",
+        "windowCells": [
+          0.0,
+          0.8,
+          4.0,
+          2.8
+        ],
+        "solidMarkersWithin": 0.125,
+        "hollowMarkersWithin": 0.5,
+        "bands": 8
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "cumulus-height-profile",
+      "file": "cumulus-height-profile.svg",
+      "sha256": "d8bedd2c9f5f1a3f72b8e0db6a4f2f9e12f38f3c7362bc7b580a3c39b3b95824",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "28-Clouds.md, section 9 (Step 2, the type, a profile over height)",
+      "generator": "make-tutorial-figures.py figures/ch28.py",
+      "generatorSha256": "ab54c388063aa881f1ad43c682c7d1f4a274b213e518916b287c4290f6ac0ba2",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "heights": [
+          0.0,
+          0.1,
+          0.6,
+          0.95
+        ],
+        "profile": "smoothstep(a, b, h) * (1 - smoothstep(c, d, h))"
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "one-frame-of-the-ocean",
+      "file": "one-frame-of-the-ocean.svg",
+      "sha256": "d4946f3af8fbc49501d581aa0e5323486e57b222307c18d1ab3c20f67b8db354",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "29-FFT-Ocean.md, Where this is going",
+      "generator": "make-tutorial-figures.py figures/ch29.py",
+      "generatorSha256": "8bac9dc411351509bcb791f0c22f3fc221d0fb446f087076fc479c4ff60fafee",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "wave-energy-by-wavelength",
+      "file": "wave-energy-by-wavelength.svg",
+      "sha256": "81d1a8390e8f6b40456a52c19401acc0fe282d3485a119ae3b49ea0de3fd73e2",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "29-FFT-Ocean.md, section 7 (What a sea's spectrum looks like)",
+      "generator": "make-tutorial-figures.py figures/ch29.py",
+      "generatorSha256": "8bac9dc411351509bcb791f0c22f3fc221d0fb446f087076fc479c4ff60fafee",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "spectrum": "Phillips, exp(-1/(kL)^2)/k^4 along the wind",
+        "windMetresPerSecond": 12.0,
+        "gravity": 9.81,
+        "peakWavelengthMetres": 130.43,
+        "worstTableDifference": 0.00044
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "crests-troughs-and-wavelength",
+      "file": "crests-troughs-and-wavelength.svg",
+      "sha256": "7541e5b052d8557d37eda2277cea8be9f50f7b1e3c0f29e07faad5704701e272",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "29-FFT-Ocean.md, section 1 (What describes a wave)",
+      "generator": "make-tutorial-figures.py figures/ch29.py",
+      "generatorSha256": "8bac9dc411351509bcb791f0c22f3fc221d0fb446f087076fc479c4ff60fafee",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "profile": "A cos(k x), phase 0"
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "a-gaussian-bell-curve",
+      "file": "a-gaussian-bell-curve.svg",
+      "sha256": "0bb370e13bae5de8b66b5ab8cf75ea2b0b2d24446e7de20c444aa6e961d9f064",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "29-FFT-Ocean.md, section 7 (Random numbers with a bell curve)",
+      "generator": "make-tutorial-figures.py figures/ch29.py",
+      "generatorSha256": "8bac9dc411351509bcb791f0c22f3fc221d0fb446f087076fc479c4ff60fafee",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "mean": 0,
+        "sigma": 1,
+        "withinOneTwoThree": [
+          0.6827,
+          0.9545,
+          0.9973
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "points-moved-toward-the-crests",
+      "file": "points-moved-toward-the-crests.svg",
+      "sha256": "21813a9f019d1e1ff8faa7fda40cb86fda6e404ce076219af76e9966908c9ae2",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "29-FFT-Ocean.md, section 8 (Sharp crests: moving the surface sideways)",
+      "generator": "make-tutorial-figures.py figures/ch29.py",
+      "generatorSha256": "8bac9dc411351509bcb791f0c22f3fc221d0fb446f087076fc479c4ff60fafee",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "lambdaAk": 0.8,
+        "pointsPerWavelength": 8,
+        "displacement": "-A sin(kx)"
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "grid-squeezed-at-the-crest",
+      "file": "grid-squeezed-at-the-crest.svg",
+      "sha256": "ebfc178329d44dac573c6b9a2c23c5b13777b927a39a656de698d9832ceb1116",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "29-FFT-Ocean.md, section 9 (The Jacobian: how squeezed the surface is)",
+      "generator": "make-tutorial-figures.py figures/ch29.py",
+      "generatorSha256": "8bac9dc411351509bcb791f0c22f3fc221d0fb446f087076fc479c4ff60fafee",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "lambdaAk": 0.8,
+        "columnsPerWavelength": 12
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "three-cascades-added-up",
+      "file": "three-cascades-added-up.svg",
+      "sha256": "67ef03c796bddc6d686f228698137ebef32176efdee7e5b0e2ecfea7e20ea198",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "30-A-Rougher-Sea.md, Where this is going",
+      "generator": "make-tutorial-figures.py figures/ch30.py",
+      "generatorSha256": "e301779b463a0e21b8f755d644c742f6f8a508737602d4477b7c9bd053a40b7a",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "stretchMetres": 50.0,
+        "wavesPerCascade": [
+          [
+            [
+              33.0,
+              1.0,
+              0.0
+            ],
+            [
+              21.0,
+              0.32,
+              1.3
+            ]
+          ],
+          [
+            [
+              4.9,
+              0.2,
+              0.4
+            ],
+            [
+              3.2,
+              0.1,
+              2.1
+            ]
+          ],
+          [
+            [
+              0.93,
+              0.085,
+              0.9
+            ],
+            [
+              0.62,
+              0.04,
+              2.6
+            ]
+          ]
+        ],
+        "bandBoundsMetres": [
+          250.0,
+          6.17,
+          1.17
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "one-frame-of-the-rougher-sea",
+      "file": "one-frame-of-the-rougher-sea.svg",
+      "sha256": "d0121753e93e7c1acc5a3f61d0d2a24df99ce1cdf5ffb9ec83155215f27140cb",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "30-A-Rougher-Sea.md, Where this is going",
+      "generator": "make-tutorial-figures.py figures/ch30.py",
+      "generatorSha256": "e301779b463a0e21b8f755d644c742f6f8a508737602d4477b7c9bd053a40b7a",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "spray-and-foam-at-the-rock",
+      "file": "spray-and-foam-at-the-rock.svg",
+      "sha256": "544343717aaedacb943d3b131eab7cec0bb4f7aa7ce8efa9b901f2e4d9f5bcf4",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "31-Spray.md, Where this is going",
+      "generator": "make-tutorial-figures.py figures/ch31.py",
+      "generatorSha256": "0ef686e0f979d4259cd1440abd091823eb424c4ce7f32db3580930d313ff0990",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "one-frame-with-spray",
+      "file": "one-frame-with-spray.svg",
+      "sha256": "f9b6de4df1949c5ca15f8566c14b90665e68d0ba8c4c43896388d273eae6cbae",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "31-Spray.md, Where this is going",
+      "generator": "make-tutorial-figures.py figures/ch31.py",
+      "generatorSha256": "0ef686e0f979d4259cd1440abd091823eb424c4ce7f32db3580930d313ff0990",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "the-boat-and-the-rock",
+      "file": "the-boat-and-the-rock.svg",
+      "sha256": "5854bb29b0f87334f24ef017f72896a6e08cd506159255cb91018ae89c1c9cd8",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "32-A-Boat.md, Where this is going",
+      "generator": "make-tutorial-figures.py figures/ch32.py",
+      "generatorSha256": "f2090f5d5b9a63eb9bf0908eb8568ce1dd35d0eda0ae2058e405b93f5a2a58d4",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "one-frame-with-the-boat",
+      "file": "one-frame-with-the-boat.svg",
+      "sha256": "66c3ea1c3696cbaa31f3b80f54310e1a19bef4a912b1516e8f2bab3e815e618b",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "32-A-Boat.md, Where this is going",
+      "generator": "make-tutorial-figures.py figures/ch32.py",
+      "generatorSha256": "f2090f5d5b9a63eb9bf0908eb8568ce1dd35d0eda0ae2058e405b93f5a2a58d4",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "light-arriving-at-a-point",
+      "file": "light-arriving-at-a-point.svg",
+      "sha256": "b3a8dfa5b1ad6be627109a161b1cf37437c431921014283a0094eab9024f4245",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "33-Path-Tracing.md, section 0 (What a pixel should show)",
+      "generator": "make-tutorial-figures.py figures/ch33.py",
+      "generatorSha256": "867d21713221a8971d6dc0a9a9ca40028802d5a2668276be259756d918c4190e",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "from-a-pixel-to-a-ray",
+      "file": "from-a-pixel-to-a-ray.svg",
+      "sha256": "5ff196e411700b074a44109723f7ccf9875cfa8d63edac71839609e85ee4d82d",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "33-Path-Tracing.md, section 3 (From a pixel to a ray)",
+      "generator": "make-tutorial-figures.py figures/ch33.py",
+      "generatorSha256": "867d21713221a8971d6dc0a9a9ca40028802d5a2668276be259756d918c4190e",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "two-level-acceleration-structure",
+      "file": "two-level-acceleration-structure.svg",
+      "sha256": "e5bb0bf8ab79b2a8c9f66cf44e17a1be69231ea73cd765ff71ee3076140f409a",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "33-Path-Tracing.md, section 6 (Why a tree, and why two levels)",
+      "generator": "make-tutorial-figures.py figures/ch33.py",
+      "generatorSha256": "867d21713221a8971d6dc0a9a9ca40028802d5a2668276be259756d918c4190e",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "instances": [
+          [
+            "floor",
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            "red",
+            [
+              -2.1,
+              1.0,
+              0.0
+            ]
+          ],
+          [
+            "white",
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          [
+            "green",
+            [
+              2.1,
+              1.0,
+              0.0
+            ]
+          ],
+          [
+            "light",
+            [
+              0.0,
+              5.0,
+              2.0
+            ]
+          ]
+        ],
+        "sphereTriangles": 3968,
+        "floorTriangles": 2
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "a-plate-pair-from-above",
+      "file": "a-plate-pair-from-above.svg",
+      "sha256": "36c8fb4a50f110f215b2ee47c2426651ba97bebaa7e141a256d64184c42f4949",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "35-Seeing-Far.md, section 2 (What the plates test)",
+      "generator": "make-tutorial-figures.py figures/ch35.py",
+      "generatorSha256": "cdc5a31308b98e849c5d7a4d0e93b0bf68fce0e978c57685b8780659b5b9d01b",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "plateGapMetres": 1.0,
+        "frontSize": 0.1,
+        "backSize": 0.12
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "rings-around-the-camera",
+      "file": "rings-around-the-camera.svg",
+      "sha256": "55cbce337ce6cb44a59a8c2f832fb8ba1df6110e5f5db9c0544fc2f86ebda073",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "36-Terrain-To-The-Horizon.md, section 2 (Each ring twice the size)",
+      "generator": "make-tutorial-figures.py figures/ch36.py",
+      "generatorSha256": "3f951cdb4db7f9dedbce1be37c5261d8c7523e78837cf720b814994ec33fa09d",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "cellsPerSide": 128,
+        "cellsDrawn": 8,
+        "finestCellMetres": 0.5
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "where-two-rings-meet",
+      "file": "where-two-rings-meet.svg",
+      "sha256": "4784a383747b8ea55b5d349bcef2bae8f760e8fb57e3fbb313816b498d79ff95",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "36-Terrain-To-The-Horizon.md, section 2 (Each ring on its neighbour's vertices)",
+      "generator": "make-tutorial-figures.py figures/ch36.py",
+      "generatorSha256": "3f951cdb4db7f9dedbce1be37c5261d8c7523e78837cf720b814994ec33fa09d",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "a-crack-between-rings",
+      "file": "a-crack-between-rings.svg",
+      "sha256": "251a4965f21c91abe392966c1a9627251db78c5576b34de1b2bdd1a3c1bd8de1",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "36-Terrain-To-The-Horizon.md, section 5 (Cracks)",
+      "generator": "make-tutorial-figures.py figures/ch36.py",
+      "generatorSha256": "3f951cdb4db7f9dedbce1be37c5261d8c7523e78837cf720b814994ec33fa09d",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "the-skirt-from-the-side",
+      "file": "the-skirt-from-the-side.svg",
+      "sha256": "04bf0ba92d07177995eeffa9086c3dcbee9929ba5fa0bbff448c6179aea5a4a4",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "36-Terrain-To-The-Horizon.md, section 11 (The skirt)",
+      "generator": "make-tutorial-figures.py figures/ch36.py",
+      "generatorSha256": "3f951cdb4db7f9dedbce1be37c5261d8c7523e78837cf720b814994ec33fa09d",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "ringsReachMetres": 65536.0,
+        "skirtDistanceMetres": 150000.0,
+        "horizontal": "to scale",
+        "vertical": "not to scale"
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "cells-and-slots-of-the-tree-pool",
+      "file": "cells-and-slots-of-the-tree-pool.svg",
+      "sha256": "0880490fb4ce5dca044c87e230d4c48477719c599a1e110ebb3cad9633176513",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "37-Objects-At-A-Distance.md, section 7 (A pool that wraps round)",
+      "generator": "make-tutorial-figures.py figures/ch37.py",
+      "generatorSha256": "0b574707e84e636b5ef0b775d08cebb5b47edbb5e94683a50bf1bb4aff665cae",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "slotsInTheExample": 6,
+        "slotsInTheChapter": 76
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "height-blend-across-a-border",
+      "file": "height-blend-across-a-border.svg",
+      "sha256": "b0daf35f6a2ec3e2a44fc89e1c6325ecb96cbf58f35c4efd8c1d08bb18d8f918",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "38-Ground-Materials.md, section 8 (Blending by height)",
+      "generator": "make-tutorial-figures.py figures/ch38.py",
+      "generatorSha256": "9cf8c343c2318f3120095176f52c6fc7e0c3a0600946b1598f5eb2cb8b504b8e",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "HEIGHT_DEPTH": 0.2,
+        "samples": 373
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "averaging-loses-the-cut-share",
+      "file": "averaging-loses-the-cut-share.svg",
+      "sha256": "032b231f4425c7eda2aba89ef5cca6587ac138b16dfae335025d8243ba9c1616",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "39-Plants.md, section 6 (Measured)",
+      "generator": "make-tutorial-figures.py figures/ch39.py",
+      "generatorSha256": "035b0f8a455992be954e01d78911092e919f850dac09edbff7cb336b9072e0fc",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "cutoff": 0.5,
+        "texels": 16,
+        "leafTexels": 5
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "impostor-views-and-handover",
+      "file": "impostor-views-and-handover.svg",
+      "sha256": "640837765a366629fe8f5f378529f857549c9d766da50ec7bac5eba65021fd70",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "40-Forests-To-The-Horizon.md, sections 1 and 2",
+      "generator": "make-tutorial-figures.py figures/ch40.py",
+      "generatorSha256": "b72077c4188c1ce232b55128bc368e418c9d155a7df97f16c6dc5126d1f944d0",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "azimuths": 8,
+        "elevations": [
+          -65,
+          -40,
+          -15,
+          10,
+          35,
+          60,
+          85
+        ],
+        "meshEnterMetres": 490.0,
+        "meshExitMetres": 560.0,
+        "poolReachMetres": 592.0,
+        "treeReachMetres": 600.0,
+        "neighbourDegrees": {
+          "-65": 18.6,
+          "-40": 34.1,
+          "-15": 43.4,
+          "10": 44.3,
+          "35": 36.5,
+          "60": 22.1,
+          "85": 3.8
+        }
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "nested-grass-source",
+      "file": "nested-grass-source.svg",
+      "sha256": "f6c8e12440e394c88503fc9bf2cfb52e040492841a0020fb9547546a7ed3ef34",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "48-Grass-In-The-Coastal-Pipeline.md, section 7 (Author A Source You Can Aggregate)",
+      "generator": "make-tutorial-figures.py figures/ch48.py",
+      "generatorSha256": "88c02a49ef60b965fb7bb927ddfaf49a03722b90d26fa4e8f8d489f37214f8f5",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "parentCells": 12,
+        "patchCells": 3,
+        "bladesPerClump": 16,
+        "examples": [
+          [
+            -1,
+            -1,
+            11
+          ],
+          [
+            -12,
+            -1,
+            0
+          ],
+          [
+            -13,
+            -2,
+            11
+          ]
+        ]
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "rounded-blade-face-and-edge",
+      "file": "rounded-blade-face-and-edge.svg",
+      "sha256": "084e587df07c502471a773b7ea76f59eddf669d874803cb76056f3e1de84dca1",
+      "kind": "computed plot",
+      "nativeRendererEvidence": false,
+      "source": "48-Grass-In-The-Coastal-Pipeline.md, section 10 (Attempt CH48-capture-facing)",
+      "generator": "make-tutorial-figures.py figures/ch48.py",
+      "generatorSha256": "88c02a49ef60b965fb7bb927ddfaf49a03722b90d26fa4e8f8d489f37214f8f5",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "edgeOverFace": 0.6,
+        "leanDegrees": 31.0
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "frame-order-from-hdr-to-display",
+      "file": "frame-order-from-hdr-to-display.svg",
+      "sha256": "1d1f74e3fd2af7e0cce8fd6f804950ff53d015c91a617a3253bb115a0a8adf22",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "49-Bloom-And-Color-Grading.md, section 1 (HDR Is The Input, Display Color Is The Output)",
+      "generator": "make-tutorial-figures.py figures/ch49.py",
+      "generatorSha256": "6d3dfe121a24e2794f75636e0b3328aafd11da4aa984410fa66bb8d31149022c",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "material-ao-in-scene-alpha",
+      "file": "material-ao-in-scene-alpha.svg",
+      "sha256": "401f5eba227691db0ce10a977c405142f685d15153fd9a81fce735f7c1c1a466",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "50-Screen-Space-Ambient-Occlusion.md, section 5 (Change The Ambient Evaluation Order)",
+      "generator": "make-tutorial-figures.py figures/ch50.py",
+      "generatorSha256": "6984286cae27f344aa17697f3081116aa34cdbfd555eb05dcd1279b22e24cda6",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {},
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    },
+    {
+      "id": "wind-sources-from-cpu-to-gpu",
+      "file": "wind-sources-from-cpu-to-gpu.svg",
+      "sha256": "18e1ccf1c79bfb79fd473a2936d164d6287a6e198012f9cfbd6e1eab481387a7",
+      "kind": "authored teaching schematic",
+      "nativeRendererEvidence": false,
+      "source": "52-Wind-Fields-And-Vorticles.md, section 1 (Two kinds of particle, two owners)",
+      "generator": "make-tutorial-figures.py figures/ch52.py",
+      "generatorSha256": "1072274d9f7b12516d18ba7571edf850276e39ef7fb7c0bde2a054bf34aad977",
+      "authoringTools": {
+        "python": "3.14.0",
+        "matplotlib": "3.11.2",
+        "font": "DejaVu, outlined"
+      },
+      "parameters": {
+        "windSources": 16,
+        "bytesPerSource": 64,
+        "uboBytes": 1024
+      },
+      "controls": "Rendered with resvg at 2x and inspected at display size on light and dark pages; text clipping and overlap checked by figure_kit.Figure.problems; content checked against the chapter text it illustrates.",
+      "regenerate": "Optional authoring only: python make-tutorial-figures.py; Matplotlib required, resvg-py and Pillow for --preview. Not part of the engine build."
+    }
+  ]
+}
